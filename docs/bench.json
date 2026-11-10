@@ -1,0 +1,143 @@
+{
+ "kind": "bench",
+ "environment": {
+  "vehicletelemetry": "1.0.0",
+  "python": "3.14.10",
+  "numpy": "2.5.4",
+  "system": "Linux x86_64",
+  "cpus": 12,
+  "seed": 1,
+  "repeat": 5,
+  "command": "bench --sizes 10000,100000,1000000,3000000 --repeat 5 --draws 50 --seeds 20 --out /out",
+  "seconds": 21.3
+ },
+ "analysis": [
+  {
+   "samples": 10000,
+   "seconds": 0.002625316999910865
+  },
+  {
+   "samples": 100000,
+   "seconds": 0.025459889002377167
+  },
+  {
+   "samples": 1000000,
+   "seconds": 0.3066113749955548
+  },
+  {
+   "samples": 3000000,
+   "seconds": 0.9677428620052524
+  }
+ ],
+ "reference": {
+  "samples": 20000,
+  "seconds": 0.07565263899959973
+ },
+ "generate": {
+  "samples": 52542,
+  "seconds": 0.06020083199837245
+ },
+ "write": {
+  "samples": 52542,
+  "seconds": 0.22660413599805906
+ },
+ "parse": {
+  "samples": 52542,
+  "seconds": 0.22530979499424575
+ },
+ "accuracy": {
+  "seeds": 20,
+  "days": 14,
+  "trips": {
+   "true": 564,
+   "found": 564,
+   "matched": 564
+  },
+  "true_km": 18809.508013126855,
+  "distance_error_median": 0.0003048153251183905,
+  "distance_error_p95": 0.010952792629282485,
+  "consumption_error_median": 0.0017209550175861787,
+  "consumption_error_p95": 0.013507866483401368,
+  "duration_error_median_s": 0.4233080221019918,
+  "duration_error_p95_s": 0.991377845220268,
+  "events": {
+   "harsh_accel": {
+    "tp": 305,
+    "fp": 0,
+    "fn": 3,
+    "missed_in_hole": 3,
+    "true": 308,
+    "found": 305,
+    "precision": 1.0,
+    "recall": 0.9902597402597403
+   },
+   "harsh_brake": {
+    "tp": 208,
+    "fp": 0,
+    "fn": 2,
+    "missed_in_hole": 2,
+    "true": 210,
+    "found": 208,
+    "precision": 1.0,
+    "recall": 0.9904761904761905
+   },
+   "spike": {
+    "tp": 152,
+    "fp": 0,
+    "fn": 1,
+    "missed_in_hole": 0,
+    "true": 153,
+    "found": 152,
+    "precision": 1.0,
+    "recall": 0.9934640522875817
+   },
+   "out_of_range": {
+    "tp": 249,
+    "fp": 0,
+    "fn": 0,
+    "missed_in_hole": 0,
+    "true": 249,
+    "found": 249,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "dropout": {
+    "tp": 409,
+    "fp": 0,
+    "fn": 0,
+    "missed_in_hole": 0,
+    "true": 409,
+    "found": 409,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "overheat": {
+    "tp": 42,
+    "fp": 0,
+    "fn": 0,
+    "missed_in_hole": 0,
+    "true": 42,
+    "found": 42,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "flatline": {
+    "tp": 35,
+    "fp": 0,
+    "fn": 0,
+    "missed_in_hole": 0,
+    "true": 35,
+    "found": 35,
+    "precision": 1.0,
+    "recall": 1.0
+   }
+  }
+ },
+ "verification": {
+  "checks": 51,
+  "numbers": 15960,
+  "ok": true,
+  "max_rel_error": 2.0756781408318187e-16,
+  "tolerance": 1e-09
+ }
+}
