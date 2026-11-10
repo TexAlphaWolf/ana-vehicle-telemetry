@@ -283,7 +283,7 @@ def generate(g: GenParams | None = None) -> tuple[Log, Truth]:
         sessions.append((n_done, n_done + ts.size - 1, i_end))
         n_done += ts.size
 
-    t = np.round(np.concatenate(parts["t"]), 3)
+    t: Array = np.asarray(np.round(np.concatenate(parts["t"]), 3), dtype=np.float64)
     cols = {c: np.concatenate(parts[c]) for c in ("speed", "rpm", "throttle", "load", "coolant", "fuel")}
     for c, hi in (("throttle", 100.0), ("load", 100.0), ("rpm", 8000.0), ("fuel", 100.0)):
         cols[c] = np.clip(cols[c], 0.0, hi)  # a sensor does not report more than its range

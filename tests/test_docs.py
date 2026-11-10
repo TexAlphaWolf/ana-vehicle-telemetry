@@ -27,7 +27,7 @@ REF_RATE = BENCH["reference"]["samples"] / BENCH["reference"]["seconds"]
 
 
 def assert_close(a: Any, b: Any) -> None:
-    """Equal structure; numbers equal to 12 digits (the file keeps full precision)."""
+    """Equal structure; numbers equal to 9 digits (libm differs in the last digits between platforms)."""
     if isinstance(b, dict):
         assert a.keys() == b.keys()
         for k in b:
@@ -37,7 +37,7 @@ def assert_close(a: Any, b: Any) -> None:
         for x, y in zip(a, b, strict=True):
             assert_close(x, y)
     elif isinstance(b, float):
-        assert a == pytest.approx(b, rel=1e-12)
+        assert a == pytest.approx(b, rel=1e-9, abs=1e-12)
     else:
         assert a == b
 
